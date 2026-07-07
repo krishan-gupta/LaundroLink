@@ -27,7 +27,7 @@ const PgSession = connectPgSimple(session);
 export async function registerRoutes(httpServer: Server, app: Express): Promise<Server> {
   const MemoryStore = MemoryStoreFactory(session);
   const sessionStore = process.env.DATABASE_URL
-    ? new PgSession({ pool, createTableIfMissing: true })
+    ? new PgSession({ pool, createTableIfMissing: false })
     : new MemoryStore({ checkPeriod: 86400000 });
 
   app.use(
