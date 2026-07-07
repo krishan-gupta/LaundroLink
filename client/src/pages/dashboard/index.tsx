@@ -1,6 +1,6 @@
 import { useAuth } from "@/hooks/use-auth";
 import StudentPortalComponent from "@/pages/student";
-import StaffScanner from "@/pages/StaffScanner";
+import StaffScanner from "@/pages/staff";
 import AdminPortal from "@/pages/admin";
 
 export function Dashboard() {
