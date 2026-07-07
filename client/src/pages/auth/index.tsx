@@ -135,7 +135,7 @@ export const WebsiteLogin = (): JSX.Element => {
                       type="text"
                       value={authCode}
                       onChange={(e) => setAuthCode(e.target.value)}
-                      placeholder="Enter 1234"
+                      placeholder="••••"
                       required={mode === "register"}
                       className="w-full pl-12 md:pl-14 pr-4 py-3 md:py-[17px] bg-transparent outline-none [font-family:'Manrope',Helvetica] text-[#001b3d] placeholder-[#495f8480] text-sm md:text-base"
                     />
