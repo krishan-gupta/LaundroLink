@@ -11,6 +11,9 @@ const router = Router();
 
 router.post("/auth/register", async (req, res) => {
   try {
+    if (req.body.authCode !== "1234") {
+      return res.status(403).json({ message: "Invalid authorization code" });
+    }
     const data = insertUserSchema.parse(req.body);
     const existing = await storage.getUserByUsername(data.username);
     if (existing) return res.status(409).json({ message: "Username already taken" });

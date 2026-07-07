@@ -15,6 +15,7 @@ export const WebsiteLogin = (): JSX.Element => {
   const [activeRole, setActiveRole] = useState("student");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [authCode, setAuthCode] = useState("");
   const [mode, setMode] = useState<"login" | "register">("login");
   const { login, register, loginPending, registerPending, loginError, registerError } = useAuth();
   const { toast } = useToast();
@@ -29,7 +30,7 @@ export const WebsiteLogin = (): JSX.Element => {
       if (mode === "login") {
         await login({ username, password, role: activeRole });
       } else {
-        await register({ username, password, role: activeRole });
+        await register({ username, password, role: activeRole, authCode });
       }
       navigate("/dashboard");
     } catch (err: any) {
@@ -122,6 +123,25 @@ export const WebsiteLogin = (): JSX.Element => {
                   />
                 </div>
               </div>
+
+              {mode === "register" && (
+                <div className="relative self-stretch w-full min-h-[70px] md:h-20">
+                  <label className="block mb-2 [font-family:'Manrope',Helvetica] font-bold text-[#001b3d] text-[10px] md:text-xs tracking-[1.20px] leading-4 uppercase">
+                    AUTH CODE
+                  </label>
+                  <div className="relative flex items-center bg-[#ffffff80] rounded-[24px] md:rounded-[32px] overflow-hidden border border-[#c3c6d726]">
+                    <img className="absolute left-4 md:left-5 w-4 h-4" alt="Code Icon" src="/figmaAssets/icon-2.svg" />
+                    <input
+                      type="text"
+                      value={authCode}
+                      onChange={(e) => setAuthCode(e.target.value)}
+                      placeholder="Enter 1234"
+                      required={mode === "register"}
+                      className="w-full pl-12 md:pl-14 pr-4 py-3 md:py-[17px] bg-transparent outline-none [font-family:'Manrope',Helvetica] text-[#001b3d] placeholder-[#495f8480] text-sm md:text-base"
+                    />
+                  </div>
+                </div>
+              )}
 
               {error && (
                 <p className="text-red-600 text-xs md:text-sm [font-family:'Manrope',Helvetica] font-medium">
