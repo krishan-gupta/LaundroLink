@@ -192,12 +192,10 @@ export const WebsiteLogin = (): JSX.Element => {
             </p>
           </div>
 
-          <img className="absolute right-28 bottom-12 w-12 h-12 opacity-50" alt="Decoration" src="/figmaAssets/overlay-border-overlayblur.svg" />
-          <img className="absolute right-12 bottom-12 w-12 h-12 opacity-50" alt="Decoration" src="/figmaAssets/overlay-border-overlayblur-1.svg" />
+
         </div>
       </div>
 
-      <img className="fixed hidden md:block right-8 bottom-8 w-20 h-20 lg:w-[132px] lg:h-[132px] pointer-events-none" alt="Floating help button" src="/figmaAssets/floating-help-button.svg" />
     </div>
   );
 };
