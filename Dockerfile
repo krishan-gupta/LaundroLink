@@ -21,5 +21,5 @@ RUN pnpm run build
 ENV PORT=7860
 EXPOSE 7860
 
-# Push the database schema and then start the server
-CMD pnpm run db:push && pnpm run start
+# Start the server
+CMD ["pnpm", "run", "start"]
